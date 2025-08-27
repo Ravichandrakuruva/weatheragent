@@ -1,0 +1,1 @@
+gcloud run deploy weather-agent-real --source . --region us-central1 --platform managed --allow-unauthenticated --set-env-vars OPENWEATHER_API_KEY="3c14c46b220142c08572303eb2d1b003"s
