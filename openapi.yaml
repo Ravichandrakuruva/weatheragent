@@ -1,0 +1,39 @@
+openapi: 3.0.0
+
+info:
+  title: Weather Proxy Tool
+  version: 1.0.1
+  description: Cloud Function tool to fetch weather by city
+
+servers:
+  - url: https://us-central1-prj-bootstrap-491917.cloudfunctions.net
+
+paths:
+  /weather-proxy:
+    get:
+      operationId: getWeather
+      summary: Get current weather for a city
+      description: Returns temperature and weather condition for the requested city.
+
+      parameters:
+        - name: city
+          in: query
+          required: true
+          description: City name (e.g., Charlotte, Dallas, Miami)
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Successful weather response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  city:
+                    type: string
+                  temperature:
+                    type: number
+                  condition:
+                    type: string
